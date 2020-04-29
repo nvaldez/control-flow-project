@@ -1,19 +1,19 @@
-import java.util.Scanner; 
+import java.util.Scanner;
 
 public class ControlFlow {
 
 	public static void main(String[] args) {
-		
+
 		Scanner input = new Scanner(System.in);
 		
-		String pet;
-		int petAge;
-		int luckyNumber;
-		String quarterback;
+		String petName = "";
+		int petNameAge = 0;
+		int luckyNumber = 0;
+		String quarterback = "";
 		int jerseyNumber = 0;
-		int vehicleModel;
-		String favoriteActor;
-		int randomNumber;
+		int vehicleModel = 0;
+		String favoriteActor = "";
+		int randomNumber = 0;
 		
 		AsciiChars.printNumbers(456);
 		System.out.println();
@@ -40,10 +40,10 @@ public class ControlFlow {
 					System.out.println("\nAwesome! Please answer the following questions to find out your lucky numbers!!!!\n");
 					
 					System.out.print("What is the name of your favorite pet?: ");
-					pet = input.nextLine();
+					petName = input.nextLine();
 					
 					System.out.print("What is the age of your favorite pet?: ");
-					petAge = input.nextInt();
+					petNameAge = input.nextInt();
 					input.nextLine();
 					
 					System.out.print("What is your lucky number?: ");
@@ -80,9 +80,13 @@ public class ControlFlow {
 						}
 					}
 					
-					System.out.println("\npet: " + pet + "\nlucky number: " + luckyNumber + "\nquarterback: " 
+					System.out.println("\npetName: " + petName + "\nlucky number: " + luckyNumber + "\nquarterback: " 
 					+ quarterback + "\njersey number: " + jerseyNumber + "\nvehicle model: " + vehicleModel
 					+ "\nfavorite actor: " + favoriteActor + "\nrandomNumber: " + randomNumber);
+					
+					System.out.println("\n\nLottery numers: " + getThirdLetterOfpetName(petName) + ", " + getFirstLetterOfActor(favoriteActor) + ", "
+							+ getLastLetterOfActor(favoriteActor) + ", " + 42 + ", " + petNamesAgeAndCarYear(petNameAge, vehicleModel) 
+							+ " Magic ball: 75");
 					
 				}
 				else if(answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) {
@@ -96,7 +100,34 @@ public class ControlFlow {
 //				break;
 			}
 		}
+		
 
+	}
+
+	public static int getThirdLetterOfpetName(String petName) {
+
+		int thirdLetterValue = petName.charAt(2);
+
+		return thirdLetterValue - 65;
+	}
+
+	public static int getFirstLetterOfActor(String actor) {
+
+		int thirdLetterValue = actor.charAt(0);
+
+		return thirdLetterValue - 65;
+	}
+
+	public static int getLastLetterOfActor(String actor) {
+
+		int thirdLetterValue = actor.charAt(actor.length() - 1);
+
+		return thirdLetterValue - 65;
+	}
+	
+	public static int petNamesAgeAndCarYear(int petNameAge, int carYear) {
+		
+		return petNameAge + carYear;
 	}
 
 }
